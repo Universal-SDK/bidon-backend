@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checks-out master of repository devops
         if: ${{ inputs.traffic == 'disable' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: bidon-io/devops
           ref: master
@@ -27,7 +27,7 @@ jobs:
 
       - name: Checks-out DO-2781/enable-traffic-to-proxy of repository devops
         if: ${{ inputs.traffic == 'enable' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: bidon-io/devops
           ref: DO-2781/enable-traffic-to-proxy
