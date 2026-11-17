@@ -107,8 +107,29 @@ func TestMain(m *testing.M) {
 	if _, err := httpClient.Get(dspsimURL + "/health_checks"); err != nil {
 		fatalf("reach dspsim at %s: %v. Start the stack: just test-e2e-up", dspsimURL, err)
 	}
+	// Bundle names restart after the truncate above, but dspsim keeps bids in
+	// memory. A second `just test-e2e` would otherwise see the previous run.
+	if err := clearDspsim(); err != nil {
+		fatalf("clear dspsim bid store: %v", err)
+	}
 
 	os.Exit(m.Run())
+}
+
+func clearDspsim() error {
+	req, err := http.NewRequest(http.MethodDelete, dspsimURL+"/debug/bids", nil)
+	if err != nil {
+		return err
+	}
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("DELETE /debug/bids: %s", resp.Status)
+	}
+	return nil
 }
 
 func fatalf(format string, args ...any) {
