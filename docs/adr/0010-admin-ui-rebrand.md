@@ -8,7 +8,7 @@
 
 ## Context
 
-The admin console was PrimeVue's Lara light-teal theme with no BidOn identity. In April 2026 the Nuxt app (`web/bidon_ui`) took on the BidOn brand: wordmark, favicons, the guideline palette, and a light/dark switch.
+The admin console was PrimeVue's Lara light-teal theme with no BidOn identity. In April 2026 the Nuxt app (`web/bidon_ui`) took on the BidOn brand: wordmark, favicons, the guideline palette, and a light/dark switch. The same work changed how the console is structured; that decision is [ADR-0011](0011-admin-ui-workspace.md).
 
 The brand guidelines PDF, source logos, and a JSX dump of the palette landed in the same change. The JSX file also describes Garet as the typeface and a helper that injects CSS variables at runtime. None of that is what the running UI does. Without a record, the next pass will import the JSX, ship Garet, or paint every control mountain-meadow green.
 

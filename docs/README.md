@@ -53,6 +53,7 @@ Diagrams:
 - [0008 — Server telemetry topic](adr/0008-telemetry-events-topic.md)
 - [0009 — Staging images and preview databases](adr/0009-staging-images-and-preview-databases.md)
 - [0010 — Admin UI rebrand](adr/0010-admin-ui-rebrand.md)
+- [0011 — Admin UI workspace](adr/0011-admin-ui-workspace.md)
 
 ## Runbooks
 

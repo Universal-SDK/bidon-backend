@@ -18,3 +18,4 @@ Format: [Nygard ADR](https://cognitect.com/blog/2011/11/15/documenting-architect
 | [0008](0008-telemetry-events-topic.md)               | Server telemetry topic               | Accepted | 2026-10-27 |
 | [0009](0009-staging-images-and-preview-databases.md) | Staging images and preview databases | Accepted | 2026-08-11 |
 | [0010](0010-admin-ui-rebrand.md)                     | Admin UI rebrand                     | Accepted | 2026-04-21 |
+| [0011](0011-admin-ui-workspace.md)                   | Admin UI workspace                   | Accepted | 2026-04-21 |
