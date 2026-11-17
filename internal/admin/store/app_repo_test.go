@@ -6,11 +6,11 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/bidon-io/bidon-backend/internal/admin"
-	"github.com/bidon-io/bidon-backend/internal/admin/resource"
-	adminstore "github.com/bidon-io/bidon-backend/internal/admin/store"
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/db/dbtest"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/resource"
+	adminstore "github.com/Universal-SDK/bidon-backend/internal/admin/store"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db/dbtest"
 )
 
 func TestAppRepo_List(t *testing.T) {

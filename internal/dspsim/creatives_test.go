@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 func testRand() *rand.Rand {

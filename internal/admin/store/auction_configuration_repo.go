@@ -7,9 +7,9 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/bidon-io/bidon-backend/internal/admin"
-	"github.com/bidon-io/bidon-backend/internal/admin/resource"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/resource"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 type AuctionConfigurationRepo struct {

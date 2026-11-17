@@ -3,7 +3,7 @@ package schema
 import (
 	"strconv"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 type Bid struct {

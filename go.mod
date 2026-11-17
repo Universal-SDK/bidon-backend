@@ -1,4 +1,4 @@
-module github.com/bidon-io/bidon-backend
+module github.com/Universal-SDK/bidon-backend
 
 go 1.24
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/internal/admin/resource"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/resource"
 )
 
 type APIKeyShort struct {

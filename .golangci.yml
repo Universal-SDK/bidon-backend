@@ -46,10 +46,10 @@ formatters:
       sections:
         - standard
         - default
-        - prefix(github.com/bidon-io/bidon-backend)
+        - prefix(github.com/Universal-SDK/bidon-backend)
     goimports:
       local-prefixes:
-        - github.com/bidon-io/bidon-backend
+        - github.com/Universal-SDK/bidon-backend
   exclusions:
     generated: lax
     paths:

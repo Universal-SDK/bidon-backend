@@ -5,9 +5,9 @@ package mocks
 
 import (
 	"context"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers"
 	"sync"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/bidon-io/bidon-backend/internal/admin/resource"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/resource"
 )
 
 //go:generate go run -mod=mod github.com/matryer/moq@v0.5.3 -out resource_scopes_mocks_test.go . AllResourceQuerier OwnedResourceQuerier OwnedOrSharedResourceQuerier

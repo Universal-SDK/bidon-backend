@@ -11,7 +11,7 @@ import (
 	"github.com/alicebob/miniredis/v2"
 	"github.com/go-redis/redismock/v9"
 
-	"github.com/bidon-io/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/config"
 )
 
 func TestNewRedisClient_RedisURLNotSet(t *testing.T) {

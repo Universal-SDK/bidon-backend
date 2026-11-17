@@ -12,10 +12,10 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	telemetryv1 "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
-	telemetryproto "github.com/bidon-io/bidon-backend/schemas/proto"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	telemetryv1 "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
+	telemetryproto "github.com/Universal-SDK/bidon-backend/schemas/proto"
 )
 
 type fakeRegistry struct {

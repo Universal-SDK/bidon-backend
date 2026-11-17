@@ -7,8 +7,8 @@ import (
 
 	"github.com/twmb/franz-go/pkg/kgo"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
 )
 
 func TestKafkaHeaders(t *testing.T) {

@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/geocoder"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/geocoder"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 type TimingMap map[string][2]int64

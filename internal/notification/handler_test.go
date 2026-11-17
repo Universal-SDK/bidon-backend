@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/notification"
-	"github.com/bidon-io/bidon-backend/internal/notification/mocks"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/notification"
+	"github.com/Universal-SDK/bidon-backend/internal/notification/mocks"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 func TestHandler_HandleStats_WinBid(t *testing.T) {

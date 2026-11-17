@@ -7,7 +7,7 @@ import (
 
 	"github.com/oschwald/maxminddb-golang"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 // Geocoder represents an geocoder.

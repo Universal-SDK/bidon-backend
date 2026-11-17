@@ -4,10 +4,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	telemetryv1 "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	telemetryv1 "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
 )
 
 // Params is the request context shared by every catalog emit.

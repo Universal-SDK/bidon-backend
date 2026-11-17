@@ -6,8 +6,8 @@ import (
 
 	"github.com/twmb/franz-go/pkg/kgo"
 
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
 )
 
 // ErrBufferFull means a telemetry record was dropped rather than wait for

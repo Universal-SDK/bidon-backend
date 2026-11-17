@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 func Test_appDemandProfileAttrsValidator_ValidateWithContext(t *testing.T) {

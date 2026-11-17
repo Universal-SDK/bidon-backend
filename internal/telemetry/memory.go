@@ -6,7 +6,7 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/bidon-io/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/config"
 )
 
 // MemoryEngine records produced events for tests.

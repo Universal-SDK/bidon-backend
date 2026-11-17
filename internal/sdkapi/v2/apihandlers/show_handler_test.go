@@ -6,12 +6,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers/mocks"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers/mocks"
 )
 
 func SetupShowHandler() apihandlers.ShowHandler {

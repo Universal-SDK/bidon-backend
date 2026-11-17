@@ -5,7 +5,7 @@ import (
 
 	"github.com/gofrs/uuid/v5"
 
-	telemetryv1 "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
+	telemetryv1 "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
 )
 
 // newProtoEnvelope builds the shared header. emit fills event_name from the

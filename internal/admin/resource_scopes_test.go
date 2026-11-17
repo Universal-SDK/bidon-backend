@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/bidon-io/bidon-backend/internal/admin/resource"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/resource"
 )
 
 func TestPublicResourceScope(t *testing.T) {

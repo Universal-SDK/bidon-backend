@@ -8,11 +8,11 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/util"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/util"
 )
 
 type ShowHandler struct {

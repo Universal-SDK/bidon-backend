@@ -16,8 +16,8 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 type DB struct {

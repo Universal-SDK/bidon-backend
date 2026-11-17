@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/rendering"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/rendering"
 )
 
 const testDemandID = adapter.Key("test-dsp")

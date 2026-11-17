@@ -10,7 +10,7 @@ import (
 
 	"github.com/bwmarrin/snowflake"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 // defaultDatabaseURL points at the postgres-test service published by docker-compose.yml.

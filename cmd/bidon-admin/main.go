@@ -24,14 +24,14 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/admin"
-	"github.com/bidon-io/bidon-backend/internal/admin/api"
-	"github.com/bidon-io/bidon-backend/internal/admin/auth"
-	adminecho "github.com/bidon-io/bidon-backend/internal/admin/echo"
-	"github.com/bidon-io/bidon-backend/internal/admin/openapi"
-	adminstore "github.com/bidon-io/bidon-backend/internal/admin/store"
-	dbpkg "github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/api"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/auth"
+	adminecho "github.com/Universal-SDK/bidon-backend/internal/admin/echo"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/openapi"
+	adminstore "github.com/Universal-SDK/bidon-backend/internal/admin/store"
+	dbpkg "github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 func main() {

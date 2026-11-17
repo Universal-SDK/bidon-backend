@@ -4,7 +4,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 
-	telemetryv1 "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
+	telemetryv1 "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
 )
 
 var (

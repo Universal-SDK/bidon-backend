@@ -11,8 +11,8 @@ import (
 	"github.com/lib/pq"
 	"go.uber.org/zap"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 // CatalogLineItem is a bidding line item (ad unit) attached to an auction.

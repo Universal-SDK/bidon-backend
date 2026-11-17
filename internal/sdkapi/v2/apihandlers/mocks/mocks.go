@@ -5,11 +5,11 @@ package mocks
 
 import (
 	"context"
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/geocoder"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/geocoder"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers"
 	"sync"
 )
 

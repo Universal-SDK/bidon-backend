@@ -12,12 +12,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/geocoder"
-	v3 "github.com/bidon-io/bidon-backend/pkg/proto/com/iabtechlab/openrtb/v3"
-	pb "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/proto/v1"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/geocoder"
+	v3 "github.com/Universal-SDK/bidon-backend/pkg/proto/com/iabtechlab/openrtb/v3"
+	pb "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/proto/v1"
 )
 
 type Server struct {

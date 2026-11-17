@@ -9,7 +9,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 func TestGetNetworks_ReturnsRegistryCatalog(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/segment"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
 )
 
 type SegmentFetcher struct {

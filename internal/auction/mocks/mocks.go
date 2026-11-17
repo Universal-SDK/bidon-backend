@@ -5,9 +5,9 @@ package mocks
 
 import (
 	"context"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/bidding"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding"
 	"sync"
 )
 

@@ -9,12 +9,12 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/device"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/device"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 const AdUnitTimeout = 6_000

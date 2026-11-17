@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
 )
 
 type Log struct{}

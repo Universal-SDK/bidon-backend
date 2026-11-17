@@ -8,7 +8,7 @@ import (
 
 	"github.com/prebid/openrtb/v19/openrtb2"
 
-	"github.com/bidon-io/bidon-backend/internal/bidding/rendering"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/rendering"
 )
 
 // CustomBidParser is implemented by non-OpenRTB adapters that fully own

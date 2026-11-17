@@ -8,9 +8,9 @@ import (
 	"github.com/go-redis/redismock/v9"
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/bidon-io/bidon-backend/internal/notification"
-	"github.com/bidon-io/bidon-backend/internal/notification/store"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/notification"
+	"github.com/Universal-SDK/bidon-backend/internal/notification/store"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 func TestAuctionResultRepo_CreateOrUpdate(t *testing.T) {

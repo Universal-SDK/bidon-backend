@@ -3,8 +3,8 @@ package admin
 import (
 	"context"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 const AuctionConfigurationV2ResourceKey = "auction_configuration_v2"

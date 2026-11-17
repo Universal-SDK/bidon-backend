@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/config"
 )
 
 type stubEvent struct {

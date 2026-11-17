@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	"github.com/bidon-io/bidon-backend/internal/bidding/rendering"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/rendering"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 func TestConvertBidToAdUnit_PropagatesRendering(t *testing.T) {

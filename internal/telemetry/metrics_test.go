@@ -6,7 +6,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	dto "github.com/prometheus/client_model/go"
 
-	telemetryv1 "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
+	telemetryv1 "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
 )
 
 func TestObserveDSPAndAuction(t *testing.T) {

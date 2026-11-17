@@ -13,10 +13,10 @@ import (
 	openapi_types "github.com/oapi-codegen/runtime/types"
 	session "github.com/spazzymoto/echo-scs-session"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/admin"
-	"github.com/bidon-io/bidon-backend/internal/admin/api"
-	"github.com/bidon-io/bidon-backend/internal/admin/auth"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/api"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/auth"
 )
 
 type Server struct {

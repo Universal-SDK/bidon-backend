@@ -31,13 +31,13 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/db/dbtest"
-	"github.com/bidon-io/bidon-backend/internal/dspsim"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/app"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db/dbtest"
+	"github.com/Universal-SDK/bidon-backend/internal/dspsim"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/app"
 )
 
 // Tables the fixtures write to. Truncated at TestMain start so reruns against
@@ -107,8 +107,29 @@ func TestMain(m *testing.M) {
 	if _, err := httpClient.Get(dspsimURL + "/health_checks"); err != nil {
 		fatalf("reach dspsim at %s: %v. Start the stack: just test-e2e-up", dspsimURL, err)
 	}
+	// Bundle names restart after the truncate above, but dspsim keeps bids in
+	// memory. A second `just test-e2e` would otherwise see the previous run.
+	if err := clearDspsim(); err != nil {
+		fatalf("clear dspsim bid store: %v", err)
+	}
 
 	os.Exit(m.Run())
+}
+
+func clearDspsim() error {
+	req, err := http.NewRequest(http.MethodDelete, dspsimURL+"/debug/bids", nil)
+	if err != nil {
+		return err
+	}
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("DELETE /debug/bids: %s", resp.Status)
+	}
+	return nil
 }
 
 func fatalf(format string, args ...any) {

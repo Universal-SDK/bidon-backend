@@ -11,8 +11,8 @@ import (
 	"github.com/jszwec/csvutil"
 	"github.com/shopspring/decimal"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 const LineItemResourceKey = "line_item"

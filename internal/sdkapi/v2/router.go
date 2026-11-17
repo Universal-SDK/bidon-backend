@@ -3,18 +3,18 @@ package v2
 import (
 	"github.com/labstack/echo/v4"
 
-	adapterstore "github.com/bidon-io/bidon-backend/internal/adapter/store"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	auctionstore "github.com/bidon-io/bidon-backend/internal/auction/store"
-	"github.com/bidon-io/bidon-backend/internal/bidding"
-	"github.com/bidon-io/bidon-backend/internal/notification"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/geocoder"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	sdkapistore "github.com/bidon-io/bidon-backend/internal/sdkapi/store"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/api"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers"
-	"github.com/bidon-io/bidon-backend/internal/segment"
+	adapterstore "github.com/Universal-SDK/bidon-backend/internal/adapter/store"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	auctionstore "github.com/Universal-SDK/bidon-backend/internal/auction/store"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding"
+	"github.com/Universal-SDK/bidon-backend/internal/notification"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/geocoder"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	sdkapistore "github.com/Universal-SDK/bidon-backend/internal/sdkapi/store"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/api"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
 )
 
 type Router struct {

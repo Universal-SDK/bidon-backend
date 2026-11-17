@@ -5,7 +5,7 @@ import (
 
 	"github.com/gofrs/uuid/v5"
 
-	"github.com/bidon-io/bidon-backend/internal/admin/auth"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/auth"
 )
 
 func TestNewAPIKey(t *testing.T) {

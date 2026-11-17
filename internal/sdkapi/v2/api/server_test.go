@@ -7,8 +7,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/api"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/api/mocks"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/api"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/api/mocks"
 )
 
 func TestServer_GetAuction(t *testing.T) {

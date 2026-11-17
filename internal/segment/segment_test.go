@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/segment"
-	segmentmocks "github.com/bidon-io/bidon-backend/internal/segment/mocks"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
+	segmentmocks "github.com/Universal-SDK/bidon-backend/internal/segment/mocks"
 )
 
 func TestMatchTwoFilters(t *testing.T) {

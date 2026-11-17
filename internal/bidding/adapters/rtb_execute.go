@@ -9,8 +9,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/openrtb"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/openrtb"
 )
 
 // ErrExecuteOptions wraps BidderInterface.ExecuteOptions failures. These point

@@ -5,7 +5,7 @@ package mocks
 
 import (
 	"context"
-	"github.com/bidon-io/bidon-backend/internal/segment"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
 	"sync"
 )
 

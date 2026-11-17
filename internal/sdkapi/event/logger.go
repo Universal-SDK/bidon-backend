@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/bidon-io/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/config"
 )
 
 type Logger struct {

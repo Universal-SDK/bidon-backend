@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/db/dbtest"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db/dbtest"
 )
 
 var testDB *db.DB

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 func appDefaults(n uint32) func(*db.App) {

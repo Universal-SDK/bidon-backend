@@ -8,7 +8,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/internal/segment"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
 )
 
 const TableNameSegment = "segments"

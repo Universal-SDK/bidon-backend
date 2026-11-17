@@ -10,11 +10,11 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	"github.com/bidon-io/bidon-backend/internal/bidding/rendering"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/pkg/clock"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/rendering"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/pkg/clock"
 )
 
 const TTL = 5 * 60 * time.Second

@@ -12,12 +12,12 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/lib/pq"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/auction/store"
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/db/dbtest"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/auction/store"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db/dbtest"
 )
 
 func TestConfigFetcher_Match(t *testing.T) {

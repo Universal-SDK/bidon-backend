@@ -11,9 +11,9 @@ import (
 
 	"github.com/prebid/openrtb/v19/openrtb2"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	"github.com/bidon-io/bidon-backend/internal/bidding/openrtb"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/openrtb"
 )
 
 func TestCountryFromRequest(t *testing.T) {
