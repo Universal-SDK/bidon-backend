@@ -1,6 +1,6 @@
 package telemetry
 
-import "github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+import "github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 
 // SchemaVersion is the current telemetry major. Additive envelope and catalog
 // changes stay on this number.

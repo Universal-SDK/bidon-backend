@@ -24,15 +24,15 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc/reflection"
 
-	"github.com/bidon-io/bidon-backend/config"
-	dbpkg "github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/adevents"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
-	grpcserver "github.com/bidon-io/bidon-backend/internal/sdkapi/grpc"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/app"
-	"github.com/bidon-io/bidon-backend/internal/telemetry"
-	pb "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/proto/v1"
+	"github.com/Universal-SDK/bidon-backend/config"
+	dbpkg "github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/adevents"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
+	grpcserver "github.com/Universal-SDK/bidon-backend/internal/sdkapi/grpc"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/app"
+	"github.com/Universal-SDK/bidon-backend/internal/telemetry"
+	pb "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/proto/v1"
 )
 
 var cpus = runtime.GOMAXPROCS(0)

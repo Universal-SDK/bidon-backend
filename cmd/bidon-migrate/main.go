@@ -11,9 +11,9 @@ import (
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/pressly/goose/v3"
 
-	_ "github.com/bidon-io/bidon-backend/cmd/bidon-migrate/migrations"
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/db/gen"
+	_ "github.com/Universal-SDK/bidon-backend/cmd/bidon-migrate/migrations"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/db/gen"
 )
 
 const (

@@ -11,7 +11,7 @@ import (
 	"sync"
 	"text/template"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 //go:embed default_creatives.json

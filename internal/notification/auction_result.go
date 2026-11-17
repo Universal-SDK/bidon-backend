@@ -3,7 +3,7 @@ package notification
 import (
 	"encoding/json"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 type AuctionResult struct {

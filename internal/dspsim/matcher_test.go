@@ -8,7 +8,7 @@ import (
 
 	"github.com/prebid/openrtb/v19/openrtb2"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 // fixtureDir holds real OpenRTB bid requests captured from the Adikteev

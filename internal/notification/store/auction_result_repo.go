@@ -8,8 +8,8 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/bidon-io/bidon-backend/internal/notification"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/notification"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 var TTL = 4 * time.Hour

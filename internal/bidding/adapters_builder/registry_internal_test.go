@@ -3,7 +3,7 @@ package adapters_builder
 import (
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 func TestBiddingAdapters_RegisteredAsBiddingNetworks(t *testing.T) {

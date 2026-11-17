@@ -31,13 +31,13 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/db/dbtest"
-	"github.com/bidon-io/bidon-backend/internal/dspsim"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/app"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db/dbtest"
+	"github.com/Universal-SDK/bidon-backend/internal/dspsim"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/app"
 )
 
 // Tables the fixtures write to. Truncated at TestMain start so reruns against

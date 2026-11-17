@@ -3,7 +3,7 @@ package admin
 import (
 	"context"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 const AuctionConfigurationResourceKey = "auction_configuration"

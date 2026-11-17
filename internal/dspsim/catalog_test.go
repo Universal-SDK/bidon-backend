@@ -5,8 +5,8 @@ import (
 
 	"github.com/lib/pq"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 // testAuctions and testLineItems mirror the shape of the sample seed data:

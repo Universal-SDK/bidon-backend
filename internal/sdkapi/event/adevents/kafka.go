@@ -3,8 +3,8 @@ package adevents
 import (
 	"context"
 
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
 )
 
 // Kafka produces ad events through the shared sdkapi Kafka client.

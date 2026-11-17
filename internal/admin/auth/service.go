@@ -9,8 +9,8 @@ import (
 	"github.com/gofrs/uuid/v5"
 	"github.com/golang-jwt/jwt/v5"
 
-	appconfig "github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/admin"
+	appconfig "github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
 )
 
 type Service struct {

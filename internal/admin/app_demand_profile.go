@@ -5,7 +5,7 @@ import (
 
 	v8n "github.com/go-ozzo/ozzo-validation/v4"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 const AppDemandProfileResourceKey = "app_demand_profile"

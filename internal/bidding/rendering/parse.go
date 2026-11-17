@@ -3,7 +3,7 @@ package rendering
 import (
 	"encoding/json"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 // Normalize returns a fully defaulted and sanitized config. A nil cfg yields DefaultConfig().

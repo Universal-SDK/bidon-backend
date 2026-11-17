@@ -4,7 +4,7 @@
 package mocks
 
 import (
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/api"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/api"
 	"github.com/labstack/echo/v4"
 	"sync"
 )

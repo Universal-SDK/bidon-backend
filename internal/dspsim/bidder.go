@@ -11,7 +11,7 @@ import (
 	"github.com/gofrs/uuid/v5"
 	"github.com/prebid/openrtb/v19/openrtb2"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 // Macros the simulator embeds in its notification URLs. bidon substitutes a

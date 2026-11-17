@@ -6,9 +6,9 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	"github.com/bidon-io/bidon-backend/internal/admin/resource"
-	"github.com/bidon-io/bidon-backend/internal/audit"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/resource"
+	"github.com/Universal-SDK/bidon-backend/internal/audit"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 // Identifiable is implemented by DB models that have an ID field.

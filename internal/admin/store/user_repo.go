@@ -7,9 +7,9 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/bidon-io/bidon-backend/internal/admin"
-	"github.com/bidon-io/bidon-backend/internal/admin/auth"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/admin/auth"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 type UserRepo struct {

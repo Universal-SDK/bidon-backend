@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 // Notification kinds recorded against a bid.

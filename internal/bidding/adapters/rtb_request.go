@@ -6,9 +6,9 @@ import (
 	"github.com/gofrs/uuid/v5"
 	"github.com/prebid/openrtb/v19/openrtb2"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/openrtb"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/openrtb"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 // CustomRequestBuilder is implemented by non-OpenRTB adapters that fully own

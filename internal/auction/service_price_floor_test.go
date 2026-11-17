@@ -3,7 +3,7 @@ package auction
 import (
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 func TestPriceFloor(t *testing.T) {

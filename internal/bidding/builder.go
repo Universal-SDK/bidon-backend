@@ -15,15 +15,15 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/exp/maps"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters/amazon"
-	"github.com/bidon-io/bidon-backend/internal/bidding/openrtb"
-	"github.com/bidon-io/bidon-backend/internal/device"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/geocoder"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/internal/telemetry"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters/amazon"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/openrtb"
+	"github.com/Universal-SDK/bidon-backend/internal/device"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/geocoder"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/telemetry"
 )
 
 type Builder struct {

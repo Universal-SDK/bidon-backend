@@ -3,17 +3,17 @@ package grpcserver
 import (
 	"google.golang.org/protobuf/proto"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/auction/store"
-	"github.com/bidon-io/bidon-backend/internal/bidding/adapters"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/internal/segment"
-	adcom "github.com/bidon-io/bidon-backend/pkg/proto/com/iabtechlab/adcom/v1"
-	adcomctx "github.com/bidon-io/bidon-backend/pkg/proto/com/iabtechlab/adcom/v1/context"
-	v3 "github.com/bidon-io/bidon-backend/pkg/proto/com/iabtechlab/openrtb/v3"
-	pbctx "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/proto/v1/context"
-	"github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/proto/v1/mediation"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/auction/store"
+	"github.com/Universal-SDK/bidon-backend/internal/bidding/adapters"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
+	adcom "github.com/Universal-SDK/bidon-backend/pkg/proto/com/iabtechlab/adcom/v1"
+	adcomctx "github.com/Universal-SDK/bidon-backend/pkg/proto/com/iabtechlab/adcom/v1/context"
+	v3 "github.com/Universal-SDK/bidon-backend/pkg/proto/com/iabtechlab/openrtb/v3"
+	pbctx "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/proto/v1/context"
+	"github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/proto/v1/mediation"
 )
 
 // Request helper

@@ -3,9 +3,9 @@ package event
 import (
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/geocoder"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/geocoder"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
 )
 
 func TestNewAdEvent(t *testing.T) {

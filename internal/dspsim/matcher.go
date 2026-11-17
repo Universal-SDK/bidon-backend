@@ -6,7 +6,7 @@ import (
 
 	"github.com/prebid/openrtb/v19/openrtb2"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
 )
 
 // NoBidReason explains why the simulator answered 204. Every reason is logged

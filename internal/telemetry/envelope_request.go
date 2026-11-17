@@ -5,9 +5,9 @@ import (
 
 	"github.com/prebid/openrtb/v19/adcom1"
 
-	"github.com/bidon-io/bidon-backend/internal/device"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	telemetryv1 "github.com/bidon-io/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
+	"github.com/Universal-SDK/bidon-backend/internal/device"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	telemetryv1 "github.com/Universal-SDK/bidon-backend/pkg/proto/org/bidon/telemetry/v1"
 )
 
 // zeroAdvertisingID is the all-zero UUID written whenever the real advertising

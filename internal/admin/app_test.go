@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/bidon-io/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
 )
 
 func TestAppService_Create(t *testing.T) {

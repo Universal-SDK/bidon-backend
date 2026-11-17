@@ -1,6 +1,6 @@
 package schema
 
-import "github.com/bidon-io/bidon-backend/internal/device"
+import "github.com/Universal-SDK/bidon-backend/internal/device"
 
 type Device struct {
 	Geo             *Geo        `json:"geo"`

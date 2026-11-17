@@ -3,7 +3,7 @@ package adapter_test
 import (
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 func TestNetworks_CoverAllKeys(t *testing.T) {

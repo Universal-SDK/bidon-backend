@@ -11,7 +11,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/bidon-io/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/config"
 )
 
 type mockPinger struct {

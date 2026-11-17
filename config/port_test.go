@@ -3,7 +3,7 @@ package config_test
 import (
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/config"
 )
 
 func TestHTTPPort(t *testing.T) {

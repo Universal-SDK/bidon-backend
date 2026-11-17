@@ -10,7 +10,7 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	telemetryproto "github.com/bidon-io/bidon-backend/schemas/proto"
+	telemetryproto "github.com/Universal-SDK/bidon-backend/schemas/proto"
 )
 
 const (

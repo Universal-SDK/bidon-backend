@@ -4,7 +4,7 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 type AdUnitLookup struct {

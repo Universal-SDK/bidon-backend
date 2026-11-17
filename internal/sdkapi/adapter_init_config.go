@@ -3,7 +3,7 @@ package sdkapi
 import (
 	"fmt"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 type AdapterInitConfig interface {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 func appDemandProfileDefaults(n uint32) func(*db.AppDemandProfile) {

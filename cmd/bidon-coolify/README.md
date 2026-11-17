@@ -35,7 +35,7 @@ go run ./cmd/bidon-coolify create-app \
   --server-uuid <server_uuid> \
   --github-app-uuid <github_app_uuid> \
   --name bidon-admin \
-  --git-repository https://github.com/bidon-io/bidon-backend \
+  --git-repository https://github.com/Universal-SDK/bidon-backend \
   --git-branch main \
   --image-name ghcr.io/bidon-io/bidon-admin \
   --image-tag latest \

@@ -7,7 +7,7 @@ import (
 
 	"gorm.io/datatypes"
 
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 func auctionConfigurationDefaults(n uint32) func(*db.AuctionConfiguration) {

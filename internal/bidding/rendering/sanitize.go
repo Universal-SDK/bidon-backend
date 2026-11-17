@@ -9,7 +9,7 @@ import (
 
 	"github.com/go-playground/validator/v10"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
 )
 
 var assetIndexPattern = regexp.MustCompile(`Assets\[(\d+)\]`)

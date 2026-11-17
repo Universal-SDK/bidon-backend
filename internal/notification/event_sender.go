@@ -12,7 +12,7 @@ import (
 	"github.com/prebid/openrtb/v19/openrtb3"
 	"go.uber.org/zap"
 
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
 )
 
 type Params struct {

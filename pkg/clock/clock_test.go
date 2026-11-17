@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bidon-io/bidon-backend/pkg/clock"
+	"github.com/Universal-SDK/bidon-backend/pkg/clock"
 )
 
 // Ensure that the clock's time matches the standard library.

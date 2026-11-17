@@ -7,9 +7,9 @@ import (
 
 	"github.com/twmb/franz-go/pkg/kgo"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
 )
 
 func unreachableProducer(t *testing.T, opts ...kgo.Opt) *engine.Kafka {

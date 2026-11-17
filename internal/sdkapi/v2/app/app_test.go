@@ -7,10 +7,10 @@ import (
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 
-	dbpkg "github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/app"
+	dbpkg "github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/app"
 )
 
 // unconnectedRedis returns a client that is never dialed: app.New only wraps

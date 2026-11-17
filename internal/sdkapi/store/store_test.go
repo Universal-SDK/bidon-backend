@@ -11,12 +11,12 @@ import (
 	"github.com/go-redis/redismock/v9"
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/bidon-io/bidon-backend/config"
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/db"
-	"github.com/bidon-io/bidon-backend/internal/db/dbtest"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/config"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/db/dbtest"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
 )
 
 var testDB *db.DB

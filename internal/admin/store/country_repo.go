@@ -3,8 +3,8 @@ package adminstore
 import (
 	"database/sql"
 
-	"github.com/bidon-io/bidon-backend/internal/admin"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/admin"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 type CountryRepo = resourceRepo[admin.Country, admin.CountryAttrs, db.Country]

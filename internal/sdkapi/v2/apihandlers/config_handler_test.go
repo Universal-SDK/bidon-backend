@@ -7,17 +7,17 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bidon-io/bidon-backend/internal/ad"
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/auction"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/event/engine"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/schema"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers"
-	"github.com/bidon-io/bidon-backend/internal/sdkapi/v2/apihandlers/mocks"
-	"github.com/bidon-io/bidon-backend/internal/segment"
-	segmentmocks "github.com/bidon-io/bidon-backend/internal/segment/mocks"
+	"github.com/Universal-SDK/bidon-backend/internal/ad"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/auction"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/event/engine"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/schema"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers"
+	"github.com/Universal-SDK/bidon-backend/internal/sdkapi/v2/apihandlers/mocks"
+	"github.com/Universal-SDK/bidon-backend/internal/segment"
+	segmentmocks "github.com/Universal-SDK/bidon-backend/internal/segment/mocks"
 )
 
 func SetupConfigHandler() apihandlers.ConfigHandler {

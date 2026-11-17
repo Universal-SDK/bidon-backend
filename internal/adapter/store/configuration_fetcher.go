@@ -8,8 +8,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bidon-io/bidon-backend/internal/adapter"
-	"github.com/bidon-io/bidon-backend/internal/db"
+	"github.com/Universal-SDK/bidon-backend/internal/adapter"
+	"github.com/Universal-SDK/bidon-backend/internal/db"
 )
 
 type ConfigurationFetcher struct {
