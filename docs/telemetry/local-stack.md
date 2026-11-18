@@ -140,7 +140,7 @@ sdkapi emits these. `POST /v2/telemetry` refuses the five names in this table.
 
 Timeout is chosen before the HTTP and parse checks. An adapter whose `ExecuteOptions` failed (missing credentials, bad adapter config) still has a `dsp_request_sent` and a response with `OUTCOME_HTTP_ERROR` and status 0, even though no request left sdkapi. `adapter_options_errors_total` tells the two apart (see vmui below). `errorCode` on `auction_completed` is `ERROR_CODE_NO_ADS_FOUND`, `ERROR_CODE_INVALID_AUCTION_KEY`, or `ERROR_CODE_ERROR`. Empty means the round finished without an auction error. `winnerDsp` is empty when nothing cleared the effective floor.
 
-Show and notice events (`ad_impression`, `win_notice_sent`, `billing_notice_sent`, `loss_notice_sent`, `notice_delivery_failed`) and their metrics come with [#961](https://github.com/bidon-io/bidon-backend/pull/961) (BAC-64). They are not on `main` yet.
+Show and notice events (`ad_impression`, `win_notice_sent`, `billing_notice_sent`, `loss_notice_sent`, `notice_delivery_failed`) and their metrics belong to BAC-64, which has not landed. They are not on `main`.
 
 ### Client events on the same topic
 
