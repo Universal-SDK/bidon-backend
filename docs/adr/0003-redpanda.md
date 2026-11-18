@@ -22,6 +22,5 @@ Rejected: keep Kafka and Zookeeper and only document them better. Also rejected:
 
 ## Consequences
 
-- `docker-compose-prod.yml` and the older `docker-compose.yml` still run Confluent Kafka and Zookeeper. Prod was out of scope for BAC-13. Do not "fix" those files into Redpanda without a separate decision.
 - On Coolify, Redpanda's advertised hostname is the preview container name. Schema Registry dials that name, and the container's own bridge IP never completes, so the staging entrypoint rewrites that hosts line to `127.0.0.1`. Other containers still use Docker DNS.
 - Console on staging is public through Traefik and is behind basic auth (`REDPANDA_CONSOLE_BA_USERS`).

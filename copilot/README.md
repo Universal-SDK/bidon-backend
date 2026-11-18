@@ -35,11 +35,11 @@ uv run langgraph dev
 
 4. Docker-compose setup
 
-- Build own LangGraph Docker image
+- Build own LangGraph Docker image (`copilot-api` in `docker-compose.yml` runs the `copilot` tag)
 ```shell
 uv run langgraph build -t copilot
 ```
 
 ```shell
-docker-compose up --profile copilot
+docker compose --profile copilot up
 ```

@@ -96,7 +96,7 @@ Strict, per event type. The Parquet columns **are** the protobuf fields.
 | Source | `.proto` files in this repo (alongside existing `proto/`). Generated Go for producers; the registry is the runtime source for Connect. |
 | Shape | One message type per PRD `event_name` (`AuctionCompleted`, `DspRequestSent`, …). Shared envelope fields live in a reusable message **embedded** in every event (not a JSON blob). |
 | Wire | Confluent protobuf: magic byte, schema id, protobuf payload. |
-| Registry | Schema Registry (already in `docker-compose-prod.yml`). Subject strategy **TopicRecordNameStrategy** so each message type has its own subject on `telemetry-events`. |
+| Registry | Schema Registry. Subject strategy **TopicRecordNameStrategy** so each message type has its own subject on `telemetry-events`. |
 | Compatibility | **BACKWARD** per subject. Additive field numbers only; never reuse a number. Matches PRD “additive within a major.” |
 | Versions | The sink lands every registered schema id. It does not reject old majors. DuckDB reads mixed file versions with `union_by_name=true`. PRD rationale 6: old SDK (and old producer) schemas persist for quarters. |
 
