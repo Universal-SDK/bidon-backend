@@ -7,6 +7,9 @@ export PATH="${TOOLS_DIR}/bin:${PATH}"
 # apk packages live in the container filesystem and are lost when the container exits.
 apk add --no-cache python3 git pre-commit curl
 
+# The checkout belongs to the host user, not root, so git refuses it as dubious ownership.
+git config --global --add safe.directory /app
+
 if [ ! -f "${TOOLS_DIR}/.installed" ]; then
 	mkdir -p "${TOOLS_DIR}/bin"
 
