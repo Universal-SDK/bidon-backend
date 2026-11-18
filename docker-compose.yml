@@ -1,19 +1,4 @@
 services:
-  migrate:
-    image: golang:1.24-alpine
-    volumes:
-      - .:/app
-      - gomodcache:/go/pkg/mod
-      - gocache:/root/.cache/go-build
-    working_dir: /app
-    command: go run ./cmd/bidon-migrate -no-gen up
-    depends_on:
-      - postgres
-    environment:
-      ENVIRONMENT: development
-      DATABASE_URL: postgres://bidon:pass@postgres:5432/bidon
-      DATABASE_REPLICA_URL: postgres://bidon:pass@postgres:5432/bidon
-
   migrate-test:
     image: golang:1.24-alpine
     volumes:
@@ -60,20 +45,6 @@ services:
     networks:
       - precommit-network
 
-  postgres:
-    image: postgres:17-alpine
-    ports:
-      - '5434:5432'
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: bidon
-      POSTGRES_USER: bidon
-      POSTGRES_PASSWORD: pass
-    healthcheck:
-      test: pg_isready -U bidon -d bidon
-      interval: 5s
-
   postgres-test:
     image: postgres:17-alpine
     ports:
@@ -95,55 +66,6 @@ services:
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
-
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.2.1
-    hostname: zookeeper
-    healthcheck:
-      test: echo srvr | nc zookeeper 2181 || exit 1
-      retries: 20
-      interval: 10s
-    ports:
-      - '2181:2181'
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-
-  # Use localhost:9092 to connect from local machine
-  # Use kafka:29092 to connect from compose network, e.g. from debezium container
-  # Use host.docker.internal:9093 to connect external docker network, for example ClickHouse in separate docker-compose file
-  kafka:
-    image: confluentinc/cp-kafka:7.2.1
-    hostname: kafka
-    depends_on:
-      - zookeeper
-    ports:
-      - '9092:9092'
-      - '9093:9093'
-      - '9101:9101'
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT,EXTERNAL_DOCKER:PLAINTEXT
-      KAFKA_LISTENERS: PLAINTEXT://:9092,PLAINTEXT_INTERNAL://:29092,EXTERNAL_DOCKER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092,EXTERNAL_DOCKER://host.docker.internal:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081
-
-  schema-registry:
-    image: confluentinc/cp-schema-registry:7.2.1
-    hostname: schema-registry
-    depends_on:
-      - kafka
-    ports:
-      - '8081:8081'
-    environment:
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka:29092'
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
 
   copilot-postgres:
     image: postgres:17-alpine
@@ -191,7 +113,6 @@ services:
     command: cargo test --all-features
 
 volumes:
-  pgdata:
   pgdata-test:
   gomodcache:
   gocache:
