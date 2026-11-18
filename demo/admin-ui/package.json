@@ -1,0 +1,11 @@
+{
+  "name": "admin-ui-demo",
+  "private": true,
+  "scripts": {
+    "demo": "env -u PLAYWRIGHT_BROWSERS_PATH playwright test",
+    "demo:headed": "env -u PLAYWRIGHT_BROWSERS_PATH playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
