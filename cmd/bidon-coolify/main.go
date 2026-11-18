@@ -261,7 +261,7 @@ func runCreateApp(client *coolifyClient, args []string) error {
 	fs.StringVar(&req.Domains, "domains", "", "Comma-separated domains")
 	fs.StringVar(&req.BaseDirectory, "base-directory", "", "Monorepo subdirectory")
 	fs.StringVar(&req.BuildPack, "build-pack", "dockerimage", "Build pack to use (dockerimage recommended for prebuilt images)")
-	fs.StringVar(&req.DockerRegistryImageName, "image-name", "", "Container image name, e.g. ghcr.io/bidon-io/bidon-admin")
+	fs.StringVar(&req.DockerRegistryImageName, "image-name", "", "Container image name, e.g. registry.digitalocean.com/bidon-io/bidon-admin")
 	fs.StringVar(&req.DockerRegistryImageTag, "image-tag", "latest", "Container image tag")
 	fs.StringVar(&req.PortsMappings, "ports-mappings", "", "Port mappings if needed")
 	fs.StringVar(&req.HealthCheckPath, "health-check-path", "", "Health check path, e.g. /health")

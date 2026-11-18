@@ -49,22 +49,6 @@ To tear down and remove all data:
 docker compose -f docker-compose.dev.yml down --volumes --remove-orphans
 ```
 
-## Manual setup (dependencies only)
-
-To run the services directly on your machine:
-
-```shell
-make local-init
-
-docker compose up -d
-```
-
-To tear down this stack and remove its data and locally built images:
-
-```shell
-docker compose down --volumes --rmi local --remove-orphans || true
-```
-
 ## Migrations
 
 ```shell
@@ -100,7 +84,7 @@ just test
 Or run the suite inside Docker:
 
 ```shell
-make test
+just test-docker
 ```
 
 The end-to-end SDK suite has its own stack (`just test-e2e-up`, `just test-e2e`).
@@ -117,12 +101,6 @@ Full local stack (Redpanda):
 
 ```shell
 docker compose -f docker-compose.dev.yml exec redpanda rpk topic consume notification-events
-```
-
-Manual setup (`docker-compose.yml`, Kafka on localhost:9092):
-
-```shell
-docker compose exec -it kafka kafka-console-consumer --bootstrap-server=localhost:9092 --topic=notification-events --from-beginning
 ```
 
 ## Copilot

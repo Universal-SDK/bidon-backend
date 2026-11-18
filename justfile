@@ -26,6 +26,13 @@ sdk-api:
 dsp-sim:
     go run ./cmd/bidon-dspsim
 
+# --- Setup ---
+
+# First-time setup: git hooks, the proto submodule, and .env.local
+local-init: config-diff
+    pre-commit install
+    git -c submodule.proto.update=checkout submodule update --init --recursive proto
+
 # --- Git workflow ---
 
 # One-time repo setup for stacked PRs (see docs/dev/git-spice.md)
@@ -45,6 +52,10 @@ test-db:
 
 test:
     go test ./...
+
+# Run the Go suite inside Docker against its own test database, the way CI does.
+test-docker:
+    docker compose run --rm go-test
 
 # Bring up Redis + the DSP simulator (and its Postgres + migrations) for the e2e suite.
 test-e2e-up:
@@ -125,6 +136,13 @@ build-ui:
 build-telemetry:
     docker buildx build --load --platform linux/amd64 --file telemetry/Dockerfile --tag {{registry}}/bidon-telemetry:{{tag}} .
 
+build-proxy:
+    just _build bidon-proxy
+
+build-copilot:
+    just _copilot-dockerfile
+    docker buildx build --load --platform linux/amd64 --tag {{registry}}/bidon-copilot:{{tag}} copilot
+
 build-all:
     just build-admin
     just build-sdkapi
@@ -164,6 +182,17 @@ ci-build-ui:
 
 ci-build-telemetry:
     docker buildx build --platform linux/amd64 --file telemetry/Dockerfile --tag {{registry}}/bidon-telemetry:{{tag}} --push .
+
+ci-build-proxy:
+    just _ci-build bidon-proxy
+
+ci-build-copilot:
+    just _copilot-dockerfile
+    docker buildx build --platform linux/amd64 --tag {{registry}}/bidon-copilot:{{tag}} --push copilot
+
+# Copilot is a LangGraph app; langgraph generates its Dockerfile.
+_copilot-dockerfile:
+    cd copilot && uv run langgraph dockerfile --base-image langchain/langgraph-api --api-version 0.2.110 Dockerfile
 
 ci-build-all:
     just docker-login
