@@ -28,10 +28,9 @@ dsp-sim:
 
 # --- Setup ---
 
-# First-time setup: git hooks, the proto submodule, and .env.local
+# First-time setup: git hooks and .env.local
 local-init: config-diff
     pre-commit install
-    git -c submodule.proto.update=checkout submodule update --init --recursive proto
 
 # --- Git workflow ---
 
