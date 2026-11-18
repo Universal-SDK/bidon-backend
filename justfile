@@ -30,7 +30,7 @@ dsp-sim:
 
 # One-time repo setup for stacked PRs (see docs/dev/git-spice.md)
 spice-init:
-    gs repo init --trunk new-main --remote origin
+    gs repo init --trunk main --remote origin
     git config --local spice.submit.navigationComment multiple
     git config --local spice.repoSync.restack upstack
     git config --local spice.merge.method squash
