@@ -19,7 +19,5 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        submodules: recursive
     - name: Run Docker rust tests
       run: docker compose run --rm rust-test
