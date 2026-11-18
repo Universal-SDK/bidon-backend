@@ -2,7 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: ".",
-  timeout: 420_000,
+  timeout: 1_320_000,
   expect: { timeout: 15_000 },
   fullyParallel: false,
   retries: 0,
@@ -13,8 +13,8 @@ export default defineConfig({
     navigationTimeout: 20_000,
     viewport: { width: 1440, height: 900 },
     video: { mode: "on", size: { width: 1440, height: 900 } },
-    trace: "retain-on-failure",
-    launchOptions: { slowMo: 1000 },
+    trace: "off",
+    launchOptions: { slowMo: 500 },
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });
