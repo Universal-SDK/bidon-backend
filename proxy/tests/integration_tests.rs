@@ -49,6 +49,7 @@ impl BiddingService for MockBiddingService {
                                 bid_type: Some("bid_type".to_string()),
                                 ext: HashMap::new(),
                                 timeout: Some(1000),
+                                rendering: None,
                             };
                             ext.set_extension_data(mediation::BID_EXT, bid_ext).unwrap();
                             ext
