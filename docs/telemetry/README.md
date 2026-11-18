@@ -5,7 +5,7 @@ This file is the status of [PR #963](https://github.com/bidon-io/bidon-backend/p
 (`bac-73-sdk-telemetry-ingest`) against the BAC-91 tickets. The design notes
 are in [design/](#docs); this page says which of them the code actually implements.
 
-The branch is rebased onto `new-main`, which already has the PRD envelope
+The branch is rebased onto `main`, which already has the PRD envelope
 ([#962](https://github.com/bidon-io/bidon-backend/pull/962)) and Smadex
 ([#934](https://github.com/bidon-io/bidon-backend/pull/934)). Ingest keeps that
 header. `app_key` and `bundle` are written on `envelope.app`, and
@@ -36,7 +36,7 @@ Closed siblings, already replaced by this PR: [#957](https://github.com/bidon-io
 (WIP OpenAPI on the old stacked history). There is no separate PR for
 BAC-74, 75, 76, 77, 78, or 79. Those tickets were folded into this branch.
 
-## Already on new-main
+## Already on main
 
 Do not re-implement these.
 
@@ -48,11 +48,11 @@ Do not re-implement these.
 
 | Work | Where it is | What to do |
 | --- | --- | --- |
-| [BAC-62](https://linear.app/bidon/issue/BAC-62) auction parent span and one child per DSP | Branch `bac-62-poc-opentelemetry-auction-parent-and-per-dsp-child-spans`. No open PR. The branch still contains the pre-merge BAC-60/61 commits, so it is not a clean diff on `new-main`. | Rebase onto `new-main` before treating the diff as the patch. VictoriaTraces and otelcol are not in compose. `OTEL_EXPORTER_OTLP_ENDPOINT` unset must leave auctions unchanged. |
-| [BAC-64](https://linear.app/bidon/issue/BAC-64) `ad_impression` and notice HTTP outcomes | Open [PR #961](https://github.com/bidon-io/bidon-backend/pull/961), one commit, not rebased onto the PRD envelope. | Rebase onto `new-main`. Show still fires BURL. `notification-events` JSON stays as it is. |
+| [BAC-62](https://linear.app/bidon/issue/BAC-62) auction parent span and one child per DSP | Branch `bac-62-poc-opentelemetry-auction-parent-and-per-dsp-child-spans`. No open PR. The branch still contains the pre-merge BAC-60/61 commits, so it is not a clean diff on `main`. | Rebase onto `main` before treating the diff as the patch. VictoriaTraces and otelcol are not in compose. `OTEL_EXPORTER_OTLP_ENDPOINT` unset must leave auctions unchanged. |
+| [BAC-64](https://linear.app/bidon/issue/BAC-64) `ad_impression` and notice HTTP outcomes | Open [PR #961](https://github.com/bidon-io/bidon-backend/pull/961), one commit, not rebased onto the PRD envelope. | Rebase onto `main`. Show still fires BURL. `notification-events` JSON stays as it is. |
 | Observe stack: RisingWave, VictoriaTraces, otelcol, Grafana ([BAC-63](https://linear.app/bidon/issue/BAC-63), BAC-85, BAC-86, BAC-87, BAC-88) | Not started. The briefs are on the Linear issues. | Leave parked unless someone is going to operate the stack. |
 | Scalar OpenAPI docs ([BAC-80](https://linear.app/bidon/issue/BAC-80)) | Not started. | The spec in `telemetry/openapi.yaml` is enough to generate a client. |
-| Events warehouse | Design only. [TRD](./design/trd-events-warehouse.md): Parquet on DigitalOcean Spaces, one table per event type, DuckDB for the SQL. No sink in this repo. | Build the sink only after `telemetry-events` on `new-main` is the schema you mean to keep. |
+| Events warehouse | Design only. [TRD](./design/trd-events-warehouse.md): Parquet on DigitalOcean Spaces, one table per event type, DuckDB for the SQL. No sink in this repo. | Build the sink only after `telemetry-events` on `main` is the schema you mean to keep. |
 
 ## Docs
 
