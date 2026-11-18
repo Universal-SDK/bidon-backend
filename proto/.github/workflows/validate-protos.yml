@@ -1,0 +1,37 @@
+name: Validate and Generate Protobuf Files
+
+on:
+  push:
+    paths:
+      - '**/*.proto'
+  pull_request:
+    paths:
+      - '**/*.proto'
+
+jobs:
+  validate-protos:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Set up buf
+      uses: bufbuild/buf-action@v1
+      with:
+        setup_only: 'true'
+            
+    - name: Check Protobuf format
+      run: buf format --diff --exit-code --path proto/*
+          
+    - name: Validate Protobuf files
+      run: buf lint
+
+    - name: Generate Protobuf files
+      run: buf generate
+
+    - name: Clean up generated files
+      run: make clean
