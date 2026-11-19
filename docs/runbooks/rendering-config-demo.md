@@ -3,7 +3,7 @@
 Show the uSDK renderer drawing each ad type through a real auction, then change one
 rendering property on the DSP side and watch the next ad change.
 
-The demo app lives in [usdk-android](https://github.com/bidon-io/usdk-android). Its Nix dev
+The demo app lives in [usdk-android](https://github.com/Universal-SDK/usdk-android). Its Nix dev
 shell provides JDK 21, the Android SDK and an emulator.
 
 ```
