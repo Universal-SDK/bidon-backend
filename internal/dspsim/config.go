@@ -38,6 +38,13 @@ type Config struct {
 	// fetched by whatever renders the ad, not by bidon - must point somewhere
 	// else, e.g. the dev stack's container-internal hostname.
 	PublicURL string
+	// CreativeURL overrides the base of the URLs inside the creative markup
+	// only (assets, click, impression and VAST tracking), leaving nurl / burl
+	// / lurl on PublicURL. Those are fired by bidon from inside the stack
+	// while the markup is fetched by the device, which may reach the
+	// simulator at another address (e.g. http://localhost:1325 over adb
+	// reverse).
+	CreativeURL string
 	// CreativesFile points at a JSON creative library. Empty means the
 	// embedded default library.
 	CreativesFile string
@@ -93,6 +100,7 @@ func LoadConfig() (Config, error) {
 		return cfg, fmt.Errorf("missing DATABASE_URL environment variable")
 	}
 	cfg.PublicURL = strings.TrimRight(cfg.PublicURL, "/")
+	cfg.CreativeURL = strings.TrimRight(os.Getenv("DSPSIM_CREATIVE_URL"), "/")
 
 	var err error
 	if cfg.PriceMultMin, err = envFloat("DSPSIM_PRICE_MULT_MIN", 1.5); err != nil {

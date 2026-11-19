@@ -1,6 +1,7 @@
 package dspsim
 
 import (
+	"encoding/json"
 	"fmt"
 	"math"
 	"math/rand"
@@ -38,6 +39,57 @@ type Bidder struct {
 
 	mu  sync.Mutex
 	rnd *rand.Rand
+
+	// renderingOverride, when set, replaces every creative's rendering config.
+	renderingOverride json.RawMessage
+	// preferredCreative, when set, is served to every slot it can fill.
+	preferredCreative string
+}
+
+// SetPreferredCreative makes every following bid serve the creative with id
+// where it fits; other slots keep the weighted draw. Empty clears it.
+func (b *Bidder) SetPreferredCreative(id string) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	b.preferredCreative = id
+}
+
+// PreferredCreative returns the preferred creative id, or "" when unset.
+func (b *Bidder) PreferredCreative() string {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.preferredCreative
+}
+
+// SetRenderingOverride makes every following bid carry rendering as its
+// ext.rendering, whatever the creative declares. Nil clears the override.
+func (b *Bidder) SetRenderingOverride(rendering json.RawMessage) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	b.renderingOverride = rendering
+}
+
+// RenderingOverride returns the current override, or nil when there is none.
+func (b *Bidder) RenderingOverride() json.RawMessage {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.renderingOverride
+}
+
+// rendering returns the config a bid for c carries: the override when set,
+// else the creative's own, else nil.
+func (b *Bidder) rendering(c *Creative) json.RawMessage {
+	if override := b.RenderingOverride(); override != nil {
+		return override
+	}
+	return c.Rendering
+}
+
+// IsJSONObject reports whether raw is a JSON object (not null, an array or a
+// scalar).
+func IsJSONObject(raw json.RawMessage) bool {
+	var m map[string]json.RawMessage
+	return json.Unmarshal(raw, &m) == nil && m != nil
 }
 
 // NewBidder returns a bidder seeded from cfg. A zero seed uses the clock.
@@ -102,6 +154,13 @@ func (b *Bidder) Build(base string, match *Match, forcedCreative string) (*openr
 	price := b.price(summary.Floor)
 	w, h := creativeSize(creative, summary)
 
+	// The device fetches creative URLs, bidon fires the notification URLs, and
+	// the two may need different hosts to reach the simulator.
+	creativeBase := base
+	if b.Config.CreativeURL != "" {
+		creativeBase = b.Config.CreativeURL
+	}
+
 	data := CreativeData{
 		BidID:         id,
 		ImpID:         summary.ImpID,
@@ -112,11 +171,11 @@ func (b *Bidder) Build(base string, match *Match, forcedCreative string) (*openr
 		Price:         price,
 		W:             w,
 		H:             h,
-		PublicURL:     base,
-		AssetURL:      base + "/creative/asset",
-		ClickURL:      fmt.Sprintf("%s/creative/click/%s", base, id),
-		ImpressionURL: fmt.Sprintf("%s/creative/impression/%s", base, id),
-		TrackURL:      fmt.Sprintf("%s/creative/track/%s", base, id),
+		PublicURL:     creativeBase,
+		AssetURL:      creativeBase + "/creative/asset",
+		ClickURL:      fmt.Sprintf("%s/creative/click/%s", creativeBase, id),
+		ImpressionURL: fmt.Sprintf("%s/creative/impression/%s", creativeBase, id),
+		TrackURL:      fmt.Sprintf("%s/creative/track/%s", creativeBase, id),
 	}
 
 	adm, err := creative.Render(data)
@@ -146,6 +205,15 @@ func (b *Bidder) Build(base string, match *Match, forcedCreative string) (*openr
 		NURL:             b.winURL(base, id),
 		BURL:             b.billingURL(base, id),
 		LURL:             b.lossURL(base, id),
+		Rendering:        b.rendering(creative),
+	}
+
+	var ext json.RawMessage
+	if record.Rendering != nil {
+		ext, err = json.Marshal(map[string]json.RawMessage{"rendering": record.Rendering})
+		if err != nil {
+			return nil, nil, "", fmt.Errorf("marshal bid ext: %w", err)
+		}
 	}
 
 	response := &openrtb2.BidResponse{
@@ -169,6 +237,7 @@ func (b *Bidder) Build(base string, match *Match, forcedCreative string) (*openr
 				NURL:    record.NURL,
 				BURL:    record.BURL,
 				LURL:    record.LURL,
+				Ext:     ext,
 			}},
 		}},
 	}
@@ -181,6 +250,11 @@ func (b *Bidder) Build(base string, match *Match, forcedCreative string) (*openr
 func (b *Bidder) selectCreative(library *Library, summary RequestSummary, forcedCreative string) (*Selection, bool) {
 	b.mu.Lock()
 	defer b.mu.Unlock()
+	if forcedCreative == "" && b.preferredCreative != "" {
+		if selection, ok := library.SelectPreferred(summary.DSP, b.preferredCreative, summary.AdType, summary.Format, summary.Width, summary.Height); ok {
+			return selection, true
+		}
+	}
 	return library.Select(summary.DSP, summary.AdType, summary.Format, summary.Width, summary.Height, forcedCreative, b.rnd)
 }
 

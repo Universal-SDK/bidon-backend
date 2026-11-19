@@ -67,6 +67,25 @@ GET {{dspsimHost}}/debug/nobids
 GET {{dspsimHost}}/debug/creatives
 
 
+### Debug — rendering config every bid carries as ext.rendering
+PUT {{dspsimHost}}/debug/rendering
+Content-Type: application/json
+
+{"close_button": {"position": "top_left", "style": "text_close", "delay_seconds": 2}}
+
+
+### Debug — back to each creative's own rendering config
+DELETE {{dspsimHost}}/debug/rendering
+
+
+### Debug — serve the VAST video to every fullscreen slot
+PUT {{dspsimHost}}/debug/creative/adikteev_vast_video
+
+
+### Debug — back to the weighted creative draw
+DELETE {{dspsimHost}}/debug/creative
+
+
 ### Debug — reload catalog and creative library without a restart
 POST {{dspsimHost}}/debug/reload
 

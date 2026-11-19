@@ -277,6 +277,11 @@ func TestLoadLibraryValidation(t *testing.T) {
 			content: `{"default": {"static_banner": [{"formats": ["BANNER"], "adm": "<a></a>"}]}}`,
 			wantErr: "has no id",
 		},
+		{
+			name:    "rendering that is not an object",
+			content: `{"default": {"static_banner": [{"id": "bad", "formats": ["BANNER"], "adm": "<a></a>", "rendering": [1]}]}}`,
+			wantErr: "rendering that is not a JSON object",
+		},
 	}
 
 	for _, tt := range tests {

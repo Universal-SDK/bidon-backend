@@ -1,8 +1,10 @@
 package dspsim
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"regexp"
 	"strconv"
@@ -54,6 +56,12 @@ func (s *Server) RegisterRoutes(g *echo.Group) {
 	g.GET("/debug/creatives/:dsp", s.handleDebugCreatives)
 	g.GET("/debug/catalog", s.handleDebugCatalog)
 	g.POST("/debug/reload", s.handleDebugReload)
+	g.GET("/debug/rendering", s.handleGetRendering)
+	g.PUT("/debug/rendering", s.handlePutRendering)
+	g.DELETE("/debug/rendering", s.handleDeleteRendering)
+	g.GET("/debug/creative", s.handleGetPreferredCreative)
+	g.PUT("/debug/creative/:id", s.handlePutPreferredCreative)
+	g.DELETE("/debug/creative", s.handleDeletePreferredCreative)
 }
 
 // handleBid answers an OpenRTB bid request: 200 with a bid response, or 204
@@ -376,6 +384,65 @@ func (s *Server) handleDebugCatalog(c echo.Context) error {
 		"bundles":   catalog.Bundles(),
 		"auctions":  catalog.Auctions(),
 	})
+}
+
+func (s *Server) handleGetRendering(c echo.Context) error {
+	return c.JSON(http.StatusOK, map[string]any{"override": s.Bidder.RenderingOverride()})
+}
+
+// handlePutRendering sets the rendering config every following bid carries
+// as ext.rendering, in place of the creative's own. The body is the
+// "rendering" object itself. It is only checked to be a JSON object, so an
+// invalid section can be sent on purpose.
+func (s *Server) handlePutRendering(c echo.Context) error {
+	body, err := io.ReadAll(c.Request().Body)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, fmt.Sprintf("read body: %v", err))
+	}
+	if !IsJSONObject(body) {
+		return echo.NewHTTPError(http.StatusBadRequest, "body must be a JSON object: the rendering config")
+	}
+
+	var compact bytes.Buffer
+	if err := json.Compact(&compact, body); err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, fmt.Sprintf("invalid JSON: %v", err))
+	}
+	override := json.RawMessage(compact.Bytes())
+
+	s.Bidder.SetRenderingOverride(override)
+	s.Logger.Info("dspsim: rendering override set", zap.ByteString("rendering", override))
+	return c.JSON(http.StatusOK, map[string]any{"override": override})
+}
+
+func (s *Server) handleDeleteRendering(c echo.Context) error {
+	s.Bidder.SetRenderingOverride(nil)
+	s.Logger.Info("dspsim: rendering override cleared")
+	return c.JSON(http.StatusOK, map[string]any{"override": nil})
+}
+
+func (s *Server) handleGetPreferredCreative(c echo.Context) error {
+	return c.JSON(http.StatusOK, map[string]any{"preferred": s.Bidder.PreferredCreative()})
+}
+
+// handlePutPreferredCreative pins a creative for every slot it can serve, for
+// the auctions that do not go through the ?creative= query override (which
+// needs the endpoint itself changed).
+func (s *Server) handlePutPreferredCreative(c echo.Context) error {
+	id := c.Param("id")
+	library := s.Bidder.GetLibrary()
+	if !library.hasCreative(id) {
+		return echo.NewHTTPError(http.StatusNotFound, fmt.Sprintf("unknown creative %q, see /debug/creatives", id))
+	}
+
+	s.Bidder.SetPreferredCreative(id)
+	s.Logger.Info("dspsim: preferred creative set", zap.String("creative_id", id))
+	return c.JSON(http.StatusOK, map[string]any{"preferred": id})
+}
+
+func (s *Server) handleDeletePreferredCreative(c echo.Context) error {
+	s.Bidder.SetPreferredCreative("")
+	s.Logger.Info("dspsim: preferred creative cleared")
+	return c.JSON(http.StatusOK, map[string]any{"preferred": ""})
 }
 
 // handleDebugReload refreshes the catalog from Postgres and re-reads the

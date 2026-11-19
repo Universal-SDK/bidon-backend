@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"slices"
 	"sort"
 	"strings"
 	"sync"
@@ -58,6 +59,12 @@ type Creative struct {
 	CampID  string      `json:"cid,omitempty"`
 	Weight  int         `json:"weight,omitempty"`
 	ADM     string      `json:"adm"`
+
+	// Rendering is sent verbatim as seatbid.bid.ext.rendering, the DSP's
+	// rendering config for the uSDK. It is not validated against the schema,
+	// so an invalid section can be sent on purpose to exercise bidon's
+	// section-level fallback.
+	Rendering json.RawMessage `json:"rendering,omitempty"`
 
 	// Type and DSP are filled in by the loader from the position in the index.
 	Type string `json:"type"`
@@ -223,6 +230,9 @@ func prepareCreative(c *Creative, dsp, creativeType string, seen map[string]bool
 	if len(c.Formats) == 0 && len(c.AdTypes) == 0 {
 		return fmt.Errorf("creative %q declares neither formats nor ad_types", c.ID)
 	}
+	if len(c.Rendering) > 0 && !IsJSONObject(c.Rendering) {
+		return fmt.Errorf("creative %q has a rendering that is not a JSON object", c.ID)
+	}
 
 	tmpl, err := template.New(c.ID).Parse(c.ADM)
 	if err != nil {
@@ -288,6 +298,29 @@ func (l *Library) Select(dsp string, adType ad.Type, format ad.Format, w, h int6
 	return nil, false
 }
 
+// SelectPreferred picks the creative with id when it can serve the slot, and
+// reports false otherwise. Unlike a forced creative, a preferred one never
+// lands in a slot it does not fit, so pinning a VAST video leaves banners
+// alone.
+func (l *Library) SelectPreferred(dsp, id string, adType ad.Type, format ad.Format, w, h int64) (*Selection, bool) {
+	dsp = strings.ToLower(strings.TrimSpace(dsp))
+	if dsp == "" {
+		dsp = DefaultDSPBucket
+	}
+
+	for _, bucket := range []string{dsp, DefaultDSPBucket} {
+		c := l.find(bucket, id)
+		if c == nil {
+			continue
+		}
+		if !slices.Contains(typesFor(adType, format), c.Type) || !c.servesFormat(format, adType) || !c.fitsSize(w, h) {
+			return nil, false
+		}
+		return &Selection{Creative: c, Bucket: bucket, FellBack: bucket != dsp}, true
+	}
+	return nil, false
+}
+
 func typesFor(adType ad.Type, format ad.Format) []string {
 	if types, ok := eligibleTypes[format]; ok {
 		return types
@@ -340,6 +373,16 @@ func (l *Library) find(dsp, id string) *Creative {
 		}
 	}
 	return nil
+}
+
+// hasCreative reports whether any bucket holds a creative with id.
+func (l *Library) hasCreative(id string) bool {
+	for dsp := range l.dsps {
+		if l.find(dsp, id) != nil {
+			return true
+		}
+	}
+	return false
 }
 
 // MarkServed increments the serve counter of a creative.

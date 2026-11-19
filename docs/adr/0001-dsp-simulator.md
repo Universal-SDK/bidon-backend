@@ -83,11 +83,13 @@ Build **`bidon-dspsim`**: a standalone OpenRTB DSP simulator in
 | `POST /openrtb/bid` (alias `POST /`) | Bid endpoint; 200 + bid response, or 204 + `X-Dspsim-Nobid-Reason` |
 | `GET\|POST /notify/win/:bidID` · `/notify/loss/:bidID` · `/notify/billing/:bidID` | nurl / lurl / burl receivers |
 | `GET /creative/impression/:bidID` · `/creative/click/:bidID` · `/creative/track/:bidID/:event` | creative-side (VAST/HTML) tracking |
-| `GET /creative/asset/:name` | generated SVG images; stubbed `video/mp4` |
+| `GET /creative/asset/:name` | generated SVG images; stubbed `video/mp4` (the default VAST creatives link a public sample video instead) |
 | `GET /debug/bids` (`?dsp=`) · `/debug/bids/:bidID` · `DELETE /debug/bids` | inspect / clear the bid registry and orphans |
 | `GET /debug/nobids` (`?dsp=`) | requests answered 204, with the reason |
 | `GET /debug/creatives` · `/debug/creatives/:dsp` | creative library with per-creative serve counts |
 | `GET /debug/catalog` · `POST /debug/reload` | inspect / reload the Postgres snapshot **and** the creative library |
+| `GET\|PUT\|DELETE /debug/rendering` | override the `ext.rendering` every bid carries (body: the rendering object) |
+| `GET /debug/creative` · `PUT /debug/creative/:id` · `DELETE /debug/creative` | prefer one creative for every slot it can serve |
 | `GET /health_checks` | DB health via `config.UseHealthCheckHandler` |
 
 ### Configuration
@@ -99,7 +101,9 @@ from the caller's `Host` (honouring `X-Forwarded-Host`/`X-Forwarded-Proto`),
 so it works out of the box for both compose-internal callers and a
 host-run `dspsim.http`. An override is only needed when creative URLs —
 fetched by whatever renders the ad, not by bidon — must point somewhere the
-request's own Host can't reach. Other defaults: `PORT=1325`,
+request's own Host can't reach. `CREATIVE_URL` moves only the URLs inside the
+markup and leaves nurl/burl/lurl on the request's Host, for a device that
+reaches the simulator at another address than bidon does. Other defaults: `PORT=1325`,
 `SEAT=dspsim`, `CUR=USD`, `PRICE_MULT_MIN=1.5` / `PRICE_MULT_MAX=3.0`,
 `FALLBACK_FLOOR=0.5`, `MAX_PRICE=25`, `NO_BID_RATE=0`, `LATENCY_MS=0`,
 `CATALOG_TTL=60s`, `BID_TTL=1h`, `MAX_BIDS=10000`, `CREATIVES_FILE=` (embedded),
@@ -107,7 +111,10 @@ request's own Host can't reach. Other defaults: `PORT=1325`,
 pricing deterministic).
 
 Query overrides on `/openrtb/bid` — `?dsp=`, `?adtype=`, `?creative=` — exist
-to pin behaviour for manual testing (`dspsim.http`).
+to pin behaviour for manual testing (`dspsim.http`). A live auction can't add
+them, so `/debug/creative` and `/debug/rendering` do the same for it: a
+creative-library entry may also carry a `rendering` object, sent as
+`seatbid.bid.ext.rendering`, which the override replaces.
 
 ---
 
