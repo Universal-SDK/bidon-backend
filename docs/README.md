@@ -58,6 +58,7 @@ Diagrams:
 - [Local development](runbooks/local-development.md)
 - [Staging and images](runbooks/staging.md)
 - [Onboard a network](runbooks/network.md)
+- [Rendering config demo](runbooks/rendering-config-demo.md)
 
 ## Telemetry
 

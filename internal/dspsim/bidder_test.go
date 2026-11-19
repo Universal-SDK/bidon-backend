@@ -127,6 +127,27 @@ func TestBidResponseRoundTripsThroughSharedParser(t *testing.T) {
 	}
 }
 
+func TestCreativeURLOnlyMovesMarkupURLs(t *testing.T) {
+	cfg := testConfig()
+	cfg.CreativeURL = "http://localhost:1325"
+	bidder := NewBidder(cfg, loadDefaultLibrary(t))
+
+	response, record, _, err := bidder.Build(cfg.PublicURL, testMatch(t, "android_adikteev_banner_bidreq.json"), "default_static_320x50")
+	if err != nil {
+		t.Fatalf("Build(): %v", err)
+	}
+
+	adm := response.SeatBid[0].Bid[0].AdM
+	if !strings.Contains(adm, cfg.CreativeURL+"/creative/") || strings.Contains(adm, cfg.PublicURL) {
+		t.Errorf("adm should use %s only, got %s", cfg.CreativeURL, adm)
+	}
+	for _, notification := range []string{record.NURL, record.BURL, record.LURL} {
+		if !strings.HasPrefix(notification, cfg.PublicURL+"/notify/") {
+			t.Errorf("notification URL %s should stay on %s", notification, cfg.PublicURL)
+		}
+	}
+}
+
 // Every macro must be the entire value of its own query param, because
 // event_sender.go only substitutes on a whole-value match.
 func TestNotificationURLsCarryWholeValueMacros(t *testing.T) {
