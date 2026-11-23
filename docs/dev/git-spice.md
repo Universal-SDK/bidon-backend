@@ -5,8 +5,8 @@ chain of manual rebases. [git-spice](https://abhinav.github.io/git-spice/)
 (`gs`) tracks the stack and handles restacking, submission, and merged-branch
 cleanup.
 
-Trunk is **`new-main`**, not GitHub's default branch (`main`). All active
-`bac-*` work branches off `new-main`, and `gs repo init` is configured
+Trunk is **`main`**, GitHub's default branch on `Universal-SDK/bidon-backend`.
+All active `bac-*` work branches off `main`, and `gs repo init` is configured
 accordingly.
 
 Branch names follow `bac-NN-slug`, matching the Linear issue's `gitBranchName`
@@ -52,7 +52,7 @@ direnv exec . gs auth status   # should report "currently logged in"
 just spice-init
 ```
 
-Runs `gs repo init --trunk new-main --remote origin` and sets the repo-local
+Runs `gs repo init --trunk main --remote origin` and sets the repo-local
 config below. git-spice's tracked-branch state lives in `refs/spice/data`,
 shared across worktrees, so this only needs to run once per clone (not per
 worktree).
@@ -69,9 +69,9 @@ gs branch restack          # r — rebase the current branch onto its updated ba
 gs log short               # ls — see the stack
 ```
 
-Use `gs branch submit`, not `gh pr create` — GitHub's default branch is
-`main`, so a bare `gh pr create` targets the wrong base. If you must use
-`gh pr create` directly, pass `--base <parent-branch>`.
+Use `gs branch submit`, not `gh pr create` — a bare `gh pr create` always
+targets `main`, which is the wrong base for any branch stacked on another.
+If you must use `gh pr create` directly, pass `--base <parent-branch>`.
 
 ### Where `gh` still earns its place
 
@@ -95,7 +95,7 @@ for the whole stack), then:
 gs repo sync
 ```
 
-`gs repo sync` pulls `new-main`, detects branches whose PRs were squash-merged
+`gs repo sync` pulls `main`, detects branches whose PRs were squash-merged
 and deletes them, and — because `repoSync.restack` is set to `upstack` —
 restacks everything that was stacked above them. **Never rebase a stack by
 hand**; `gs repo sync` is what reconciles a merged bottom branch.
@@ -112,7 +112,7 @@ gs rebase abort
 For branches created before git-spice was set up:
 
 ```bash
-gs branch track --base new-main            # register a single branch
+gs branch track --base main                # register a single branch
 gs downstack track                         # register a branch and everything below it
 ```
 
