@@ -37,7 +37,7 @@ go run ./cmd/bidon-coolify create-app \
   --name bidon-admin \
   --git-repository https://github.com/Universal-SDK/bidon-backend \
   --git-branch main \
-  --image-name ghcr.io/bidon-io/bidon-admin \
+  --image-name registry.digitalocean.com/bidon-io/bidon-admin \
   --image-tag latest \
   --ports-exposes 1323 \
   --health-check-enabled \

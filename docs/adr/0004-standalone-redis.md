@@ -24,4 +24,3 @@ Rejected: repair the 3-node dev cluster (publish the bus port, fix announce addr
 
 - `REDIS_CLUSTER` is gone. A deployment that still sets it, and not `REDIS_URL`, will fail at boot instead of silently using a stale value.
 - Moving an environment to a real cluster later is a config change (more than one address). Call sites depend on `redis.UniversalClient`, not `*redis.ClusterClient`.
-- `docker-compose-prod.yml` was left on its existing Redis image. The client and the URL are what changed there.

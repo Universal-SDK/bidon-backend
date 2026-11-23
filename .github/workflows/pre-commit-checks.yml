@@ -8,19 +8,13 @@ on:
 
 jobs:
     pre-commit:
-      runs-on: [self-hosted]
+      runs-on: ubuntu-latest
 
       steps:
         - uses: actions/checkout@v4
           with:
             ref: ${{ github.head_ref || github.sha }}
-            submodules: 'recursive'
             fetch-depth: 0
-
-        # TODO: remove once Coolify deploy key is added to bidon-protos (see .gitmodules).
-        # update=none prevents automatic submodule init, so we override it here explicitly.
-        - name: Initialize proto submodule
-          run: git -c submodule.proto.update=checkout submodule update --init --recursive proto
 
         - name: Run pre-commit checks
           run: docker compose run --rm go-pre-commit

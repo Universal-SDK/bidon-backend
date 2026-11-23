@@ -18,7 +18,7 @@ cmd/       bidon-admin, bidon-sdkapi, bidon-dspsim, bidon-migrate, bidon-seed,
 internal/  ad, adapter, admin, auction, audit, bidding, db, device, dspsim,
            notification, sdkapi, segment, telemetry
 pkg/       reusable packages
-proto/     protobuf definitions (git submodule, update=none)
+proto/     protobuf definitions (Bidon + vendored IAB AdCOM/OpenRTB)
 config/    YAML config    docker/  scripts/  web/bidon_ui (Nuxt frontend)
 ```
 
@@ -57,7 +57,7 @@ just config-diff    # ensure .env.local exists, list keys missing vs .env.sample
 
 Host and container ports match. Admin and sdkapi read their own port var, then
 `PORT`, then the default above (`config.HTTPPort`); staging pins sdkapi to
-`PORT=1323` for Coolify routing, prod sets `PORT` explicitly.
+`PORT=1323` for Coolify routing.
 
 `bidon-dspsim` is a standalone OpenRTB DSP simulator: reads auction config from
 Postgres, answers bid requests from a JSON creative library, and records the
@@ -65,7 +65,7 @@ nurl/burl/lurl it advertises under `/debug/bids`. Drive it with `dspsim.http`;
 pointing a live auction at it needs an out-of-band endpoint redirect. Design:
 [docs/adr/0001-dsp-simulator.md](docs/adr/0001-dsp-simulator.md).
 
-First-time setup also needs `make local-init` (submodules + deps).
+First-time setup also needs `just local-init` (git hooks, `.env.local`).
 
 ### Stacked PRs
 
@@ -117,6 +117,8 @@ it is deliberately not part of `go-check-pr.yml`.
 ```bash
 just build-all      # local docker store
 just ci-build-all   # build + push to registry
+just build-proxy    # bidon-proxy and bidon-copilot are not in the -all recipes;
+just build-copilot  # ci-build-proxy / ci-build-copilot push them
 ```
 
 Local dev mounts source into `bidon-ui` and hot-reloads. **Coolify runs pre-built
