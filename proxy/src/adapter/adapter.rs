@@ -870,6 +870,7 @@ mod tests {
                             bid_type: Some("bid_type".to_string()),
                             ext: HashMap::new(),
                             timeout: Some(500),
+                            rendering: None,
                         };
                         ext.set_extension_data(mediation::BID_EXT, bid_ext).unwrap();
                         ext

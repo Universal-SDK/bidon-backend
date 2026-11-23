@@ -18,7 +18,7 @@ cmd/       bidon-admin, bidon-sdkapi, bidon-dspsim, bidon-migrate, bidon-seed,
 internal/  ad, adapter, admin, auction, audit, bidding, db, device, dspsim,
            notification, sdkapi, segment, telemetry
 pkg/       reusable packages
-proto/     protobuf definitions (git submodule, update=none)
+proto/     protobuf definitions (Bidon + vendored IAB AdCOM/OpenRTB)
 config/    YAML config    docker/  scripts/  web/bidon_ui (Nuxt frontend)
 ```
 
@@ -65,8 +65,7 @@ nurl/burl/lurl it advertises under `/debug/bids`. Drive it with `dspsim.http`;
 pointing a live auction at it needs an out-of-band endpoint redirect. Design:
 [docs/adr/0001-dsp-simulator.md](docs/adr/0001-dsp-simulator.md).
 
-First-time setup also needs `just local-init` (git hooks, proto submodule,
-`.env.local`).
+First-time setup also needs `just local-init` (git hooks, `.env.local`).
 
 ### Stacked PRs
 

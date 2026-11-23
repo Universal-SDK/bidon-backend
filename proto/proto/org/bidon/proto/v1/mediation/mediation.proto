@@ -1,0 +1,215 @@
+syntax = "proto2";
+
+// buf:lint:ignore PACKAGE_VERSION_SUFFIX
+package org.bidon.proto.v1.mediation;
+
+import "com/iabtechlab/adcom/v1/adcom.proto";
+import "com/iabtechlab/openrtb/v3/request.proto";
+import "com/iabtechlab/openrtb/v3/response.proto";
+
+message AppExt {
+  optional string key = 1;
+  optional string framework = 2;
+  optional string framework_version = 3;
+  optional string plugin_version = 4;
+  optional string sdk_version = 5;
+  repeated string skadn = 6;
+  optional string bidon_version = 7; // set from http header
+}
+
+// Extend AdCOM 1.0 Context objects if necessary
+extend com.iabtechlab.adcom.v1.context.DistributionChannel.App {
+  optional AppExt app_ext = 101;
+}
+
+message DeviceExt {
+  // Unique identifier for the session
+  optional string id = 1;
+  //  Timestamp of the session launch
+  optional int64 launch_ts = 2;
+  //  Monotonic timestamp of the session launch
+  optional int64 launch_monotonic_ts = 3;
+  //  Timestamp of the session start
+  optional int64 start_ts = 4;
+  //  Monotonic timestamp of the session start
+  optional int64 start_monotonic_ts = 5;
+  //  Current timestamp of the session
+  optional int64 ts = 6;
+  //  Current monotonic timestamp of the session
+  optional int64 monotonic_ts = 7;
+  //  Timestamps when memory warnings occurred
+  repeated int64 memory_warnings_ts = 8;
+  //  Monotonic timestamps when memory warnings occurred
+  repeated int64 memory_warnings_monotonic_ts = 9;
+  //  Amount of RAM used
+  optional int64 ram_used = 10;
+  //  Total size of RAM
+  optional int64 ram_size = 11;
+  //  Free storage space available
+  optional int64 storage_free = 12;
+  //  Used storage space
+  optional int64 storage_used = 13;
+  //  Battery level percentage
+  optional double battery = 14;
+  //  CPU usage percentage
+  optional double cpu_usage = 15;
+}
+
+// Extend AdCOM 1.0 Device object
+extend com.iabtechlab.adcom.v1.context.Device {
+  optional DeviceExt device_ext = 101;
+}
+
+message Segment {
+  optional string id = 1;
+  optional string uid = 2;
+  optional string ext = 3;
+}
+
+message UserExt {
+  optional string idfa = 1;
+  optional string tracking_authorization_status = 2;
+  optional string idfv = 3;
+  optional string idg = 4;
+
+  repeated Segment segments = 6;
+}
+
+// Extend AdCOM 1.0 User object
+extend com.iabtechlab.adcom.v1.context.User {
+  optional UserExt user_ext = 101;
+}
+
+message RegsExt {
+  optional string us_privacy = 2;
+  optional string eu_privacy = 3;
+  optional string iab = 4;
+}
+
+// Extend AdCOM 1.0 Regs object
+extend com.iabtechlab.adcom.v1.context.Regs {
+  optional RegsExt regs_ext = 101;
+}
+
+message PlacementExt {
+  optional string auction_id = 1;
+  optional string auction_key = 2;
+  optional int64 auction_configuration_id = 3;
+  optional string auction_configuration_uid = 4;
+  map<string, Demand> demands = 5;
+}
+
+extend com.iabtechlab.adcom.v1.placement.Placement {
+  optional PlacementExt placement_ext = 101;
+}
+
+message Demand {
+  optional string token = 1;
+  optional string status = 2;
+  optional int64 token_finish_ts = 3;
+  optional int64 token_start_ts = 4;
+}
+
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum Orientation {
+  ORIENTATION_UNSPECIFIED = 0;
+  PORTRAIT = 1;
+  LANDSCAPE = 2;
+}
+
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum AdFormat {
+  FORMAT_UNSPECIFIED = 0;
+  BANNER = 1;
+  LEADERBOARD = 2;
+  MREC = 3;
+  ADAPTIVE = 4;
+}
+
+message DisplayPlacementExt {
+  optional Orientation orientation = 1;
+  optional AdFormat format = 2;
+}
+
+extend com.iabtechlab.adcom.v1.placement.Placement.DisplayPlacement {
+  optional DisplayPlacementExt display_placement_ext = 101;
+}
+
+message SdkAdapter {
+  optional string version = 1;
+  optional string sdk_version = 2;
+}
+
+enum AdType {
+  AD_TYPE_UNSPECIFIED = 0;
+  AD_TYPE_BANNER = 1;
+  AD_TYPE_INTERSTITIAL = 2;
+  AD_TYPE_REWARDED = 3;
+}
+
+message RequestExt {
+  optional AdType ad_type = 1;
+  // key - adapter name (e.g., "property1", "property2")
+  map<string, SdkAdapter> adapters = 2;
+  optional string ext = 3;
+}
+
+extend com.iabtechlab.openrtb.v3.Request {
+  optional RequestExt request_ext = 101;
+}
+
+// Extensions for response.
+
+message BidExt {
+  // Type of bid associated with the ad unit
+  optional string bid_type = 1;
+
+  // Label for the ad unit
+  optional string label = 2;
+
+  // Additional properties for the ad unit
+  map<string, string> ext = 3;
+
+  // Fill timeout for the ad unit
+  optional int32 timeout = 4;
+
+  // JSON-encoded DSP rendering configuration for the uSDK renderer.
+  // Same schema as REST ad_units[].rendering.
+  optional string rendering = 5;
+}
+
+// Extend OpenRTB Bid object
+extend com.iabtechlab.openrtb.v3.Bid {
+  optional BidExt bid_ext = 101;
+}
+
+message AuctionResponseExt {
+  // Unique identifier for the auction
+  optional string auction_id = 1;
+
+  // Configuration ID for the auction
+  optional int64 auction_configuration_id = 2;
+
+  // Unique identifier for the auction configuration
+  optional string auction_configuration_uid = 3;
+
+  // Represents the auction key
+  optional string token = 4;
+
+  // Price floor for the auction
+  optional double auction_pricefloor = 5;
+
+  // Timeout for the auction
+  optional int32 auction_timeout = 6;
+
+  // Indicates if external win notifications are enabled
+  optional bool external_win_notifications = 7;
+
+  // Segment for the auction
+  optional Segment segment = 8;
+}
+
+// Extend OpenRTB AuctionResponse object
+extend com.iabtechlab.openrtb.v3.Response {
+  optional AuctionResponseExt auction_response_ext = 101;
+}
