@@ -1,6 +1,7 @@
 package dspsim
 
 import (
+	"encoding/json"
 	"sort"
 	"strings"
 	"sync"
@@ -60,6 +61,8 @@ type BidRecord struct {
 	NURL             string    `json:"nurl"`
 	BURL             string    `json:"burl"`
 	LURL             string    `json:"lurl"`
+	// Rendering is the ext.rendering the bid carried, if any.
+	Rendering json.RawMessage `json:"rendering,omitempty"`
 
 	Notifications []Notification `json:"notifications"`
 }
